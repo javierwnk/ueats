@@ -13,7 +13,7 @@
           </thead>
           <tbody>
               <tr v-for="product in cart" :key="product.index">
-                  <td><img :src="require(`@/assets/${product.image}.png`)" :alt="product.name"></td>
+                  <td><img :src="product.image" :alt="product.name"></td>
                   <td>{{product.name}}</td>
                   <td>${{product.price}}</td>
                   <td>1</td>

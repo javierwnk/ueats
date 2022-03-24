@@ -38,7 +38,8 @@ export default {
             phone: "",
             password: "",
             message: false,
-            messageStyle: ""
+            messageStyle: "",
+            userData: null
         }
     },
     methods: {
@@ -49,18 +50,27 @@ export default {
             } else {
                 this.message = "The phone number or password is invalid"
                 this.messageStyle = "text-danger"
-            }
-            
+            } 
         }
     },
     computed: {
         loginVerification() {
-            if(this.phone == "1234" && this.password == "admin") {
+
+            let user = this.userData.find(user => user.phone == this.phone && user.password == this.password)
+
+            if(user) {
                 return true
             } else {
                 return false
             }
         }
+    },
+    created() {
+        let url = "https://6238caec00ed1dbc5ab775ba.mockapi.io/api/users"
+
+        fetch(url)
+        .then(response => response.json())
+        .then(data => this.userData = data)
     }
 }
 </script>

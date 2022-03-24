@@ -28,7 +28,7 @@ export default {
     },
     data() {
         return {
-            options: [{name: "Login", path: "/login"}, {name: "Sign Up", path: "/singup"}, {name: "Delivery", path: "/delivery"}]
+            options: [{name: "Login", path: "/login"}, {name: "Sign Up", path: "/singup"}, {name: "Delivery", path: "/delivery"}, {name: "Admin", path: "/admin"}]
         }
     }
 }

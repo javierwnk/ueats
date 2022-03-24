@@ -100,10 +100,35 @@ export default {
             }
 
             if(!this.matchPassword && !this.numbers) {
-                alert("Registro exitoso")
+                this.postUser()
+                
             }
             
+        },
+        postUser () {
+            let user = {
+                name: this.name,
+                surname: this.surname,
+                email: this.email,
+                phone: this.phone,
+                password: this.password
+            }
+
+            let url = "https://6238caec00ed1dbc5ab775ba.mockapi.io/api/users"
+
+            let post = {
+                method: "POST",
+                body: JSON.stringify(user, post),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+
+            fetch(url, post)
+            .then(alert("Usuario creado correctamente"))
+            
         }
+
     },
     computed: {
         passwordHasNumbers() {

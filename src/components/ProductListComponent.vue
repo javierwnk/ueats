@@ -1,18 +1,15 @@
 <template>
   <div class="container">
-      <h2>{{this.title}}</h2>
 
       <div class="productList">
-          <router-link :to="{name: 'product', params: {id: product.id}}" class="productCard" v-for="product in products" :key="product.id">
+          <router-link :to="{name: 'product', params: {id: product.id}}" class="productCard">
               <div>
-                  <img :src="require(`@/assets/${product.image}.png`)" :alt="product.name">
+                  <img :src="product.image" :alt="product.name">
               </div>
               <div>
                   <h3>{{product.name}}</h3>
                   <div class="productDetails">
                       <p>${{product.price}}  • </p>
-                      <p v-if="product.freeShipping"> Free Shipping  • </p>
-                      <p>{{product.deliveryTime}}</p>
                   </div>
               </div>
           </router-link>
@@ -24,8 +21,7 @@
 export default {
     name: "ProductList",
     props: {
-        title: String,
-        products: Array
+        product: Object
     }
     
 }
