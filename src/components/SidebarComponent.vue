@@ -134,6 +134,11 @@ ul li a {
     margin-right: 12px;
 }
 
+.os a:hover {
+  background: #E2E2E2;
+  text-decoration: none;
+}
+
 .os a svg {
     height: 20px;
 }
