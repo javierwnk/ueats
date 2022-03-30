@@ -1,6 +1,9 @@
 <template>
   <header>
       <div class="logo">
+
+          <sidebar-component />
+
           <router-link to="/">
             <img src="../assets/logo.svg" alt="Uber Eats Logo">
           </router-link>
@@ -12,8 +15,8 @@
       </div>
 
       <nav>
-          <router-link v-for="option in options" :to="option.path" :key="option.index">{{option.name}}</router-link>
           <router-link class="cartItem" to="/cart"><b-icon-cart-fill class="cartIcon"></b-icon-cart-fill>Cart • <counter-component /></router-link>
+          <router-link v-for="option in options" :to="option.path" :key="option.index">{{option.name}}</router-link>
       </nav>
       
   </header>
@@ -21,14 +24,16 @@
 
 <script>
 import CounterComponent from '@/components/CounterComponent.vue'
+import SidebarComponent from '@/components/SidebarComponent.vue'
 export default {
     name: "HeaderView",
     components: {
-        CounterComponent
+        CounterComponent,
+        SidebarComponent
     },
     data() {
         return {
-            options: [{name: "Login", path: "/login"}, {name: "Sign Up", path: "/singup"}, {name: "Delivery", path: "/delivery"}, {name: "Admin", path: "/admin"}]
+            options: [ {name: "Sign Up", path: "/singup"}]
         }
     }
 }
@@ -74,15 +79,26 @@ export default {
         outline: none;
     }
 
-    nav {
+    nav {      
         display: flex;
         justify-content: space-around;
         align-items: center;
+        column-gap: 16px;
+        margin: 0 24px;
     }
 
     nav a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #000;
+    background: #eee;
+    border-radius: 500px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 500px;
+    padding: 8px 12px;
+
     }
     /* Esta clase podemos cambiarle el estilo a los enlaces */
     nav a.router-link-exact-active, nav a:hover {
