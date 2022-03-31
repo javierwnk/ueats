@@ -1,71 +1,77 @@
 <template>
     <div>
-        <div class="container introduction">
-            <h2>Sign Up</h2>
-            <p>Please provide the information below to register</p>
+        <div>
+            <div class="container introduction">
+                <h2>Sign Up</h2>
+                <p>Please provide the information below to register</p>
+            </div>
+            <form class="container" action="" @submit.prevent="registerSuccess">
+
+                <label for="name">Name</label>
+                <input
+                v-model="name" 
+                type="text" 
+                name="name" 
+                id="name"
+                placeholder="First Name"
+                required>
+
+                <label for="surname">Last Name</label>
+                <input
+                v-model="surname" 
+                type="text" 
+                name="surname" 
+                id="surname"
+                placeholder="Last Name"
+                required>
+
+                <label for="email">E-mail</label>
+                <input
+                v-model="email" 
+                type="email" 
+                name="email" 
+                id="email"
+                placeholder="E-mail"
+                required>
+
+                <label for="phone">Phone</label>
+                <input
+                v-model="phone" 
+                type="tel" 
+                name="phone" 
+                id="phone"
+                placeholder="Phone number"
+                required>
+
+                <label for="password">Password</label>
+                <input
+                v-model="password" 
+                type="password" 
+                name="password" 
+                id="password"
+                placeholder="Password"
+                required>
+
+                    <label for="password">Repeat password</label>
+                <input
+                v-model="password2" 
+                type="password" 
+                name="password2" 
+                id="password2"
+                placeholder="Repeat password"
+                required>
+
+                <input type="submit" value="Sign Up">
+
+                <p v-if="numbers" class="text-danger">{{numbers}}</p>
+                <p v-if="matchPassword" class="text-danger">{{matchPassword}}</p>
+
+            </form>
         </div>
-        <form class="container" action="" @submit.prevent="registerSuccess">
-
-            <label for="name">Name</label>
-            <input
-            v-model="name" 
-            type="text" 
-            name="name" 
-            id="name"
-            placeholder="First Name"
-            required>
-
-            <label for="surname">Last Name</label>
-            <input
-            v-model="surname" 
-            type="text" 
-            name="surname" 
-            id="surname"
-            placeholder="Last Name"
-            required>
-
-            <label for="email">E-mail</label>
-            <input
-            v-model="email" 
-            type="email" 
-            name="email" 
-            id="email"
-            placeholder="E-mail"
-            required>
-
-            <label for="phone">Phone</label>
-            <input
-            v-model="phone" 
-            type="tel" 
-            name="phone" 
-            id="phone"
-            placeholder="Phone number"
-            required>
-
-            <label for="password">Password</label>
-            <input
-            v-model="password" 
-            type="password" 
-            name="password" 
-            id="password"
-            placeholder="Password"
-            required>
-
-             <label for="password">Repeat password</label>
-            <input
-            v-model="password2" 
-            type="password" 
-            name="password2" 
-            id="password2"
-            placeholder="Repeat password"
-            required>
-
-            <input type="submit" value="Sign Up">
-
-            <p v-if="numbers" class="text-danger">{{numbers}}</p>
-            <p v-if="matchPassword" class="text-danger">{{matchPassword}}</p>
-
-        </form>
+        <div>
+            
+        </div>
+        
     </div>
 </template>
 
