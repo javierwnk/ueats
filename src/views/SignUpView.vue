@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="signUpContainer">
         <div>
             <div class="container introduction">
                 <h2>Sign Up</h2>
@@ -68,8 +68,13 @@
 
             </form>
         </div>
+
         <div>
-            
+            <h2>Already have an account?</h2>
+            <router-link class="loginBtn" to="/login">Login</router-link>
+        </div>
+        <div>
+
         </div>
         
     </div>
@@ -152,8 +157,18 @@ export default {
 </style>
 
 <style scoped>
+
+    .signUpContainer {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+
+        column-gap: 64px;
+        margin-top: 64px;
+    }
+
     .introduction {
-        margin-top: 30px;
         text-align: center;
     }
 
@@ -187,5 +202,17 @@ export default {
         padding: 0;
         line-height: 12px;
     }
+
+    .loginBtn {
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+        border-radius: 500px;
+        color: #fff;
+        font-weight: 500;
+        padding: 16px;
+    } 
 
 </style>

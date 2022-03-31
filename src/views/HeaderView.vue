@@ -57,7 +57,7 @@ export default {
   },
   data() {
     return {
-      options: [{ name: "Sign Up", path: "/singup" }],
+      options: [{ name: "Sign Up", path: "/signup" }],
     };
   },
 };
