@@ -6,19 +6,16 @@
       <router-link to="/">
         <img src="../assets/logo.svg" alt="Uber Eats Logo" />
       </router-link>
-
-      
     </div>
 
     <div class="middle">
-
-        <div class="types">
-            <b-button-group>
-                <b-button class="active">Delivery</b-button>
-                <b-button>Pickup</b-button>
-                <b-button>Dine-in</b-button>
-            </b-button-group>
-        </div>
+      <div class="types">
+        <b-button-group>
+          <b-button class="active">Delivery</b-button>
+          <b-button>Pickup</b-button>
+          <b-button>Dine-in</b-button>
+        </b-button-group>
+      </div>
 
       <div class="location">
         <location-icon-component />
@@ -27,9 +24,9 @@
     </div>
 
     <div class="searchBar">
-<b-icon-search class="h6 icon"></b-icon-search>
-<input type="search" placeholder="Food, groceries, drinks, etc" />
-      </div>
+      <b-icon-search class="h6 icon"></b-icon-search>
+      <input type="search" placeholder="Food, groceries, drinks, etc" />
+    </div>
 
     <nav>
       <router-link class="cartItem" to="/cart"
@@ -88,34 +85,33 @@ header {
 }
 
 .middle {
-    display: flex;
-    column-gap: 24px;
-    align-items: center;
-    grid-area: middle;
+  display: flex;
+  column-gap: 24px;
+  align-items: center;
+  grid-area: middle;
 }
 
 .location {
-    height: 48px;
+  height: 48px;
 
-    display: flex;
-    align-items: center;
-    background: #eee;
-    border-radius: 500px;
-    font-size: 14px;
-    font-weight: 500;
-    column-gap: 10px;
-    padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  background: #eee;
+  border-radius: 500px;
+  font-size: 14px;
+  font-weight: 500;
+  column-gap: 10px;
+  padding: 8px 12px;
 }
 
 .location:hover {
-    background: #e2e2e2;
-    cursor: pointer;
+  background: #e2e2e2;
+  cursor: pointer;
 }
 
 .location p {
-    margin: 0;
+  margin: 0;
 }
-
 
 .searchBar {
   background-color: #eeeeee;
@@ -141,7 +137,7 @@ input {
 }
 
 nav {
-width: fit-content;
+  width: fit-content;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -164,13 +160,13 @@ nav a {
 }
 
 nav a:hover {
-    text-decoration: none;
-    background: #e2e2e2;
-    cursor: pointer;
+  text-decoration: none;
+  background: #e2e2e2;
+  cursor: pointer;
 }
 
 .cartItem:hover {
-    background: rgb(51, 51, 51);
+  background: rgb(51, 51, 51);
 }
 
 .cartItem {
@@ -188,34 +184,32 @@ nav a:hover {
 }
 
 .types {
-    height: 48px;
-    border-radius: 500px;
-    background: #eee;
+  height: 48px;
+  border-radius: 500px;
+  background: #eee;
 }
 
 .btn-group {
-    display: flex;
-    column-gap: 5px;
-    align-content: center;
-    border-radius: 500px;  
+  display: flex;
+  column-gap: 5px;
+  align-content: center;
+  border-radius: 500px;
 }
 
 .btn-secondary {
-    height: 48px;
-    background-color: transparent;
-    border: 0;
-    color: #000;
-    font-weight: 500;
-    font-size: 14px;
-    border-radius: 500px;
-
+  height: 48px;
+  background-color: transparent;
+  border: 0;
+  color: #000;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 500px;
 }
 
 button.btn.active.btn-secondary {
-    background-color: #fff;
-    color: #000;
-    border-radius: 500px;
-    border: 4px solid #eeeeee;   
-
+  background-color: #fff;
+  color: #000;
+  border-radius: 500px;
+  border: 4px solid #eeeeee;
 }
 </style>
