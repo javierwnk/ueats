@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 export default {
     name: 'LoginView',
     data() {
@@ -39,11 +40,13 @@ export default {
             password: "",
             message: false,
             messageStyle: "",
-            userData: null
+            us: [] 
         }
     },
     methods: {
         loginSuccess() {
+            this.us = this.$store.state.users
+            
             if(this.loginVerification) {
                 this.message = "Success!"
                 this.messageStyle = "text-success"
@@ -54,24 +57,25 @@ export default {
         }
     },
     computed: {
+        ...mapState([
+            "users"
+        ]),
+        ...mapActions([
+            "getUsers"
+        ]),
         loginVerification() {
-
-            let user = this.userData.find(user => user.phone == this.phone && user.password == this.password)
-
+            let user = this.us.find(user => user.phone == this.phone && user.password == this.password)
             if(user) {
                 return true
             } else {
                 return false
-            }
+            } 
         }
     },
     created() {
-        let url = "https://6238caec00ed1dbc5ab775ba.mockapi.io/api/users"
-
-        fetch(url)
-        .then(response => response.json())
-        .then(data => this.userData = data)
-    }
+        this.getUsers()
+    } 
+   
 }
 </script>
 

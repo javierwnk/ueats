@@ -14,6 +14,9 @@ export default new Vuex.Store({
   getters: {
   },
   mutations: {
+    pasteUsers(state, users) {
+      state.users = users
+    },
     pasteCategories(state, categories) {
       state.categories = categories
     },
@@ -28,11 +31,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async getUsers() {
+    async getUsers( { commit }) {
       const response = await fetch(this.state.url + "users")
       const users = await response.json()
-      this.users = users
-      // commit("pasteUsers", users)
+      
+      commit('pasteUsers', users)
     },
     async getCategories({ commit }) {
       const response = await fetch(this.state.url + "categories")

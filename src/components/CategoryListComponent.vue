@@ -34,8 +34,8 @@ export default {
             "getCategories"
         ])
     },
-    beforeMount() {
-        this.getCategories
+    created() {
+        this.getCategories()
     } 
 }
 </script>
@@ -43,12 +43,14 @@ export default {
 <style scoped>
     ul {
         width: 90%;
+        height: 121px;
         list-style-type: none;
 
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: row wrap;
         justify-content: space-between;
-        overflow: hidden;
+        overflow-y: hidden;
+        row-gap: 200px;
         
         padding: 20px 0;
         margin: 0 auto 15px auto;
