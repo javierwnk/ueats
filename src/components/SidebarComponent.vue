@@ -54,6 +54,8 @@ export default {
 .iconDropdown {
   font-size: 1.9rem;
   margin-right: 32px;
+  cursor: pointer;
+  outline: none;
 }
 
 .sidebarContent {
