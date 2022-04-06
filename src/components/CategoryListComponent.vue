@@ -26,12 +26,14 @@ export default {
             
         }
     },
+    methods: {
+        ...mapActions([
+            "getCategories"
+        ])
+    },
     computed: {
         ...mapState([
             "categories"
-        ]),
-        ...mapActions([
-            "getCategories"
         ])
     },
     created() {

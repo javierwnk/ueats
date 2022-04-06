@@ -54,14 +54,14 @@ export default {
                 this.message = "The phone number or password is invalid"
                 this.messageStyle = "text-danger"
             } 
-        }
+        },
+        ...mapActions([
+            "getUsers"
+        ]),
     },
     computed: {
         ...mapState([
             "users"
-        ]),
-        ...mapActions([
-            "getUsers"
         ]),
         loginVerification() {
             let user = this.us.find(user => user.phone == this.phone && user.password == this.password)

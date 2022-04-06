@@ -9,7 +9,9 @@ export default new Vuex.Store({
     cartCounter: 0,
     users: [],
     categories: [],
-    restaurants: []    
+    restaurants: [],
+    product: [],
+    cart: []  
   },
   getters: {
   },
@@ -23,11 +25,27 @@ export default new Vuex.Store({
     pasteRestaurants(state, restaurants) {
       state.restaurants = restaurants
     },
-    updateCartQty(state) {
-      let qty = 0
-      let cart = JSON.parse(localStorage.getItem('cart'))
-      cart.forEach(product => qty += product.qty)
-      state.cartCounter = qty
+    pasteProduct(state, product) {
+      state.product = product
+    },
+    addToCart(state, product) {
+
+      if(localStorage.getItem('cart')) {
+        state.cart = JSON.parse(localStorage.getItem('cart'))
+
+        const value = state.cart.findIndex(element => element.id == product.id)
+
+        if(value != -1) {
+          state.cart[0].qty += product.qty
+        } else {
+          state.cart.push(product)
+        }
+
+      } else {
+        state.cart = [product]
+      }
+
+      localStorage.setItem('cart', JSON.stringify(state.cart))
     }
   },
   actions: {
@@ -48,6 +66,12 @@ export default new Vuex.Store({
       const restaurants = await response.json()
 
       commit('pasteRestaurants', restaurants)
+    },
+    async getProduct ({commit}, id) {
+      const response = await fetch(this.state.url + "restaurants/" + id)
+      const product = await response.json()
+
+      commit('pasteProduct', product)
     }
   },
   modules: {

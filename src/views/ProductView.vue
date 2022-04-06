@@ -1,46 +1,50 @@
 <template>
   <div class="container">
-    <h2>{{product.name}}</h2>
-    <img :src="product.image" :alt="product.name">
-    <p>Price: ${{product.price}}</p>
-    <p>Delivery Time: {{product.description}}</p>
-    <button @click="addToCart">Buy now</button>
+      <h2>{{product.name}}</h2>
+      <img :src="product.image" :alt="product.name" width="250px">
+      <p>$ {{product.price}}</p>
+        <button @click="qty++">+</button>
+        <input type="number" name="qty" id="qty" :value="qty">
+        <button @click="qty > 1 ? qty-- : qty = 1 ">-</button>
+        <br>
+        <br>
+      <button @click="loadCart(product)">Add to cart</button>
   </div>
 </template>
 
 <script>
+import { mapActions, mapMutations, mapState } from 'vuex'
 export default {
     name: "ProductView",
     data() {
         return {
-            product: []
+            qty: 1
+        }
+    },
+    computed: {
+        ...mapState([
+            "product"
+        ])
+    },
+    methods: {
+        ...mapActions([
+            "getProduct",
+            "updateCartQty"
+        ]),
+        ...mapMutations([
+            "addToCart"
+        ]),
+        loadCart(prod) {
+            let product = {...prod, qty: this.qty}
+            this.addToCart(product)
         }
     },
     beforeMount() {
-        let url = "https://6238caec00ed1dbc5ab775ba.mockapi.io/api/products/" + this.$route.params.id;
-
-        fetch(url)
-        .then((response) => response.json())
-        .then((data) => (this.product = data));
-    },
-    methods: {
-        addToCart() {
-            let cart = []
-            if (localStorage.getItem("cart")){
-                cart = JSON.parse(localStorage.getItem("cart"))
-            }
-
-            cart.push(this.product)
-            localStorage.setItem("cart", JSON.stringify(cart))
-            alert("Producto agregado")
-        }
+        this.getProduct(this.$route.params.id)
     }
-
 }
 </script>
 
-<style scoped>
-    .container {
-        margin-top: 30px;
-    }
+<style>
+
 </style>

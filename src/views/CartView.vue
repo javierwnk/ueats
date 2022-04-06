@@ -16,7 +16,7 @@
                   <td><img :src="product.image" :alt="product.name"></td>
                   <td>{{product.name}}</td>
                   <td>${{product.price}}</td>
-                  <td>1</td>
+                  <td>{{product.qty}}</td>
                   <td><button @click="deleteItem(product.id)">Delete</button></td>
               </tr>
               <tr>
