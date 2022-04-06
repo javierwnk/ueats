@@ -129,7 +129,7 @@ export default {
       }
     },
     createProduct() {
-      let url = "https://6238caec00ed1dbc5ab775ba.mockapi.io/api/products";
+      let url = "https://6238caec00ed1dbc5ab775ba.mockapi.io/api/restaurants";
 
       let newProduct = {
         id: this.products.length + 1,
@@ -182,7 +182,7 @@ export default {
       };
 
       let url =
-        "https://6238caec00ed1dbc5ab775ba.mockapi.io/api/products/" +
+        "https://6238caec00ed1dbc5ab775ba.mockapi.io/api/restaurants/" +
         this.idProduct;
 
       fetch(url, put)
@@ -201,7 +201,7 @@ export default {
     },
     deleteProduct(id) {
       let url =
-        "https://6238caec00ed1dbc5ab775ba.mockapi.io/api/products/" + id;
+        "https://6238caec00ed1dbc5ab775ba.mockapi.io/api/restaurants/" + id;
 
       let deleteHeader = {
           method: "DELETE",
@@ -227,7 +227,7 @@ export default {
     },
   },
   created() {
-    let url = "https://6238caec00ed1dbc5ab775ba.mockapi.io/api/products";
+    let url = "https://6238caec00ed1dbc5ab775ba.mockapi.io/api/restaurants";
 
     fetch(url)
       .then((response) => response.json())
