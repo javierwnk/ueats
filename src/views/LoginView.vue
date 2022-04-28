@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import router from '@/router'
 import { mapActions, mapState } from 'vuex'
 export default {
     name: 'LoginView',
@@ -46,10 +47,13 @@ export default {
     methods: {
         loginSuccess() {
             this.us = this.$store.state.users
-            
-            if(this.loginVerification) {
+            let check = this.loginVerification
+
+            if(check && this.phone != "admin") {
                 this.message = "Success!"
                 this.messageStyle = "text-success"
+            } else if (check && this.phone == "admin") {
+                router.push("/admin")
             } else {
                 this.message = "The phone number or password is invalid"
                 this.messageStyle = "text-danger"
