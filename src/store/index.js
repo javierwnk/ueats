@@ -46,6 +46,10 @@ export default new Vuex.Store({
       }
 
       localStorage.setItem('cart', JSON.stringify(state.cart))
+
+      let totalQty = 0;
+      state.cart.forEach(item => totalQty += item.qty)
+      state.cartCounter = totalQty
     }
   },
   actions: {
